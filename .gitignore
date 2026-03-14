@@ -1,0 +1,5 @@
+# Backend Secrets
+.env
+backend/.env
+backend/.env.local
+node_modules/
