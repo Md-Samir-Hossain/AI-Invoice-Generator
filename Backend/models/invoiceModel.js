@@ -73,7 +73,7 @@ const invoiceSchema = new mongoose.Schema({
     signatureTitle: { type: String, default: "" },
 
     taxPercent: { type: Number, default: 18 },
-    taxAmount: { type: Number, default: 0 },
+    tax: { type: Number, default: 0 },
     subtotal: { type: Number, default: 0 },
     total: { type: Number, default: 0 },
 
