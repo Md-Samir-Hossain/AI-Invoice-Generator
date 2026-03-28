@@ -98,6 +98,9 @@ async function generateUniqueInvoiceNumber(attempts = 8) {
 /* ----------------- CREATE ----------------- */
 export async function createInvoice(req, res) {
   try {
+    // Extracting the userId property directly from whatever object getAuth(req) returns.
+    // const auth = getAuth(req);
+    // const userId = auth.userId;  This 2 line is equal to the bellow line.
     const { userId } = getAuth(req) || {};
     if (!userId) {
       return res
@@ -210,6 +213,76 @@ export async function createInvoice(req, res) {
         .status(409)
         .json({ success: false, message: "Invoice number already exists" });
     }
+    return res.status(500).json({ success: false, message: "Server error" });
+  }
+}
+
+// LIST OF ALL INVOICES
+export async function listInvoices(req, res) {
+  try {
+    const { userId } = getAuth(req) || {};
+    if (!userId) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Authentication required" });
+    }
+    const q = { owner: userId };
+    if(req.query.status) q.status = req.query.status;
+    if(req.query.invoiceNumber) q.invoiceNumber = req.query.invoiceNumber;
+    //For Filter
+    if (req.query.search) {
+      const search = req.query.search.trim();
+      q.$or = [
+        { fromEmail: { $regex: search, $options: "i" } },
+        { "client.email": { $regex: search, $options: "i" } },
+        { "client.name": { $regex: search, $options: "i" } },
+        { invoiceNumber: { $regex: search, $options: "i" } },
+      ];
+    }
+
+    const invoices = await Invoice.find(q).sort({ createdAt: -1 }).lean();
+    return res
+      .status(200)
+      .json({ success: true, message: "Invoices fetched", data: invoices });
+  } catch (err) {
+    console.error("ListInvoices error:", err);
+    return res.status(500).json({ success: false, message: "Server error" });
+  }
+}
+
+// GET SINGLE INVOICE BY ID
+export async function getInvoiceById(req, res) {
+  try {
+    const { userId } = getAuth(req) || {};
+    if (!userId) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Authentication required" });
+    }
+    const { id } = req.params;
+    if (!id) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Invoice ID is required" });
+    }
+    let invoice;
+    if(isObjIdString(id)) invoice = await Invoice.findById(id);
+    else invoice = await Invoice.findOne({ invoiceNumber: id });
+    if (!invoice) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Invoice not found" });
+    }
+    if(invoice.owner && String(invoice.owner) !== String(userId)) {
+      return res
+        .status(403)
+        .json({ success: false, message: "Forbidden: Not your invoice" });
+    }
+    return res
+      .status(200)
+      .json({ success: true, message: "Invoice fetched", data: invoice });
+  } catch (err) {
+    console.error("getInvoiceById error:", err);
     return res.status(500).json({ success: false, message: "Server error" });
   }
 }
