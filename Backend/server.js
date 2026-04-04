@@ -5,6 +5,7 @@ import { clerkMiddleware } from '@clerk/express'
 import { connectDB } from './config/db.js';
 import path from 'path';
 import invoiceRouter from './routes/invoiceRouter.js';
+import businessProfileRouter from './routes/businessProfileRouter.js';
 
 const app = express();
 const PORT = 3000;
@@ -22,6 +23,7 @@ connectDB();
 app.use('/uploads', express.static(path.join(process.cwd(),'uploads')));
 
 app.use('/api/invoice',invoiceRouter);
+app.use('/api/business-profile',businessProfileRouter);
 
 app.get('/', (req, res)=>{
     res.send('API WORKING');
