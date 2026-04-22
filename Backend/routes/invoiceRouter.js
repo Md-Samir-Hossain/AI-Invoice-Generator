@@ -1,6 +1,6 @@
 import express from "express";
 import { clerkMiddleware } from "@clerk/express";
-import { createInvoice, deleteInvoice, getInvoiceById, listInvoices, updateInvoice } from "../controllers/invoiceController";
+import { createInvoice, deleteInvoice, getInvoiceById, listInvoices, updateInvoice } from "../controllers/invoiceController.js";
 
 const invoiceRouter = express.Router();
 invoiceRouter.use(clerkMiddleware());

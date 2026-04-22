@@ -1,6 +1,5 @@
 import BusinessProfile from "../models/businessProfileModel.js";
 import { getAuth } from "@clerk/express";
-import { upload } from "../config/multer.js";
 import path from "path";
 
 const API_BASE = 'http://localhost:3000/';
