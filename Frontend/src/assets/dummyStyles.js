@@ -307,7 +307,7 @@ export const appShellStyles = {
   sidebarIcon: "transition-all duration-300",
   sidebarIconActive: "text-blue-600 scale-110",
   sidebarIconInactive: "text-gray-400 group-hover:text-gray-600 group-hover:scale-105",
-  sidebarText: "flex-1 transition-all duration-300",
+  sidebarText: "flex-1 whitespace-nowrap transition-all duration-300",
   sidebarActiveIndicator: "w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse",
   
   // User Area
