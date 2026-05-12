@@ -584,7 +584,7 @@ export const featuresStyles = {
   // Background Elements
   backgroundBlob1: "absolute top-10 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob",
   backgroundBlob2: "absolute top-10 right-0 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-2",
-  backgroundBlob3: "absolute -bottom-8 left-20 w-72 h-72 bg-amber-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-3",
+  backgroundBlob3: "absolute bottom-8 left-80 w-50 h-50 bg-amber-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-3",
   
   // Container
   container: "relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
@@ -859,9 +859,9 @@ export const pricingStyles = {
   section: "relative py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden",
   
   // Background Elements
-  bgElement1: "absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob",
-  bgElement2: "absolute top-0 right-0 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000",
-  bgElement3: "absolute -bottom-8 left-20 w-72 h-72 bg-violet-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000",
+  bgElement1: "absolute top-10 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-1",
+  bgElement2: "absolute top-10 right-0 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-2",
+  bgElement3: "absolute bottom-8 left-20 w-72 h-72 bg-violet-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-3",
   
   // Container
   container: "relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
