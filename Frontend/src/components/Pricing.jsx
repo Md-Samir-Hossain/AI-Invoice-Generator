@@ -289,7 +289,7 @@ const Pricing = () => {
                     <div className={pricingStyles.featuresCard}>
                         <h3 className={pricingStyles.featuresTitle}>All plans include</h3>
                         <div className={pricingStyles.featuresGrid}>
-                            {["Secure Cloud Storage", "Professional PDF Export", "AI Prompt History", "Mobile App Access"].map((feature, i) => (
+                            {["Secure Cloud Storage", "Professional PDF Export", "Tax calculation", "Mobile friendly interface", "Real time notification", "Multi-currency support"].map((feature, i) => (
                                 <div key={i} className={pricingStyles.featureItem}>
                                     <span className={pricingStyles.featureDot} />
                                     <span>{feature}</span>
