@@ -315,7 +315,7 @@ export const appShellStyles = {
   userDivider: "border-t border-gray-200/60 pt-6",
   userDividerCollapsed: "px-1",
   userDividerExpanded: "px-2",
-  logoutButton: "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 hover:shadow-sm transition-all duration-300 group",
+  logoutButton: "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium cursor-pointer text-red-600 hover:bg-red-50 hover:shadow-sm transition-all duration-300 group",
   logoutIcon: "w-5 h-5 group-hover:scale-110 transition-transform",
   collapseSection: "mt-4 flex justify-center",
   collapseButtonInner: "flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-white transition-all duration-300 text-xs text-gray-600 hover:text-gray-800",
