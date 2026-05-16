@@ -344,7 +344,7 @@ const Dashboard = () => {
                                 </span>
                             </div>
                             <div className={dashboardStyles.quickStatsRow}>
-                                <span className={dashboardStyles.quickStatsLabel}>Collection Efficiency</span>
+                                <span className={dashboardStyles.quickStatsLabel}>Avg. Invoice</span>
                                 <span className={dashboardStyles.quickStatsValue}>
                                     {formatCurrency(
                                         Kpis.totalInvoices > 0
@@ -355,7 +355,7 @@ const Dashboard = () => {
                             </div>
 
                             <div className={dashboardStyles.quickStatsRow}>
-                                <span className={dashboardStyles.quickStatsLabel}>Collection Efficiency</span>
+                                <span className={dashboardStyles.quickStatsLabel}>Collection Eff.</span>
                                 <span className={dashboardStyles.quickStatsValue}>
                                     {Kpis.paidPercentage.toFixed(1) + "%"}
                                 </span>
@@ -379,9 +379,7 @@ const Dashboard = () => {
                                     >
                                         <FiPlus className="w-4 h-4"/>
                                     </div>
-                                    <span className={dashboardStyles.quickActionText}>
-                                        Create Invoice
-                                    </span>
+                                    <span className={dashboardStyles.quickActionText}>Create Invoice</span>
                                 </button>
 
                                 <button
@@ -393,9 +391,7 @@ const Dashboard = () => {
                                     >
                                         <FiFileText className="w-4 h-4" />
                                     </div>
-                                    <span className={dashboardStyles.quickActionText}>
-                                        View All Invoices
-                                    </span>
+                                    <span className={dashboardStyles.quickActionText}>All Invoices</span>
                                 </button>
 
                                 <button
@@ -407,9 +403,7 @@ const Dashboard = () => {
                                     >
                                         <GoPerson className="w-4 h-4"/>
                                     </div>
-                                    <span className={dashboardStyles.quickActionText}>
-                                        Business Profile
-                                    </span>
+                                    <span className={dashboardStyles.quickActionText}>Business Profile</span>
                                 </button>
                             </div>
                         </div>

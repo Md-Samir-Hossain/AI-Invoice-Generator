@@ -78,6 +78,7 @@ const invoiceSchema = new mongoose.Schema({
     total: { type: Number, default: 0 },
 
     items: {type: [itemSchema], default: []},
+    notes: { type: String, default: "" },
     
 },{
     timestamps: true    

@@ -25,7 +25,7 @@ const computeInvoiceTotals = (items = [], taxPercent = 0) => {
 
     return {
         subtotal: Math.round(subtotal * 100) / 100,
-        taxAmount: Math.round(taxAmount * 100) / 100,
+        tax: Math.round(taxAmount * 100) / 100,
         total: Math.round(total * 100) / 100,
     };
 };
@@ -112,11 +112,11 @@ export async function createInvoice(req, res) {
     const body = req.body || {};
     const items = Array.isArray(body.items)
       ? body.items
-      : parseItemsField(body.items);
+      : parseItems(body.items);
     const taxPercent = Number(
       body.taxPercent ?? body.tax ?? body.defaultTaxPercent ?? 0
     );
-    const totals = computeTotals(items, taxPercent);
+    const totals = computeInvoiceTotals(items, taxPercent);
     const fileUrls = uploadedFilesToUrls(req);
 
     // If client supplied invoiceNumber, ensure it doesn't already exist
@@ -333,7 +333,7 @@ export async function updateInvoice(req, res) {
     const taxPercent = Number(
       body.taxPercent ?? body.tax ?? body.defaultTaxPercent ?? existing.taxPercent ?? 0
     );
-    const totals = computeTotals(items, taxPercent);
+    const totals = computeInvoiceTotals(items, taxPercent);
     const fileUrls = uploadedFilesToUrls(req);
     
     // To Update we need to update these fields
@@ -378,7 +378,7 @@ export async function updateInvoice(req, res) {
       if (update[key] === undefined) delete update[key];
     });
 
-    const updated  = await invoice.findOneAndUpdate(
+    const updated  = await Invoice.findOneAndUpdate(
       {_id: existing._id}, 
       update, 
       {new: true, runValidators: true}

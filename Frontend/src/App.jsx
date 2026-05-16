@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import AppShell from './components/AppShell'
 import Dashboard from './pages/Dashboard'
+import CreateInvoice from './pages/CreateInvoice'
 
 const ClerkProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded } = useAuth()
@@ -34,6 +35,7 @@ function App() {
       >
         <Route index element={<Dashboard />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="create-invoice" element={<CreateInvoice />} />
       </Route>
     </Routes>
     </div>
