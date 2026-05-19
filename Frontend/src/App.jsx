@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import AppShell from './components/AppShell'
 import Dashboard from './pages/Dashboard'
 import CreateInvoice from './pages/CreateInvoice'
+import Invoices from './pages/Invoices'
+import InvoicePreview from './components/InvoicePreview'
 
 const ClerkProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded } = useAuth()
@@ -36,6 +38,9 @@ function App() {
         <Route index element={<Dashboard />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="create-invoice" element={<CreateInvoice />} />
+        <Route path="invoices" element={<Invoices />} />
+        <Route path="invoice/:id" element={<InvoicePreview />} />
+        <Route path="invoice/:id/edit" element={<CreateInvoice />} />
       </Route>
     </Routes>
     </div>
