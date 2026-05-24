@@ -14,7 +14,7 @@ const ClerkProtectedRoute = ({ children }) => {
   const clerk = useClerk()
 
   if (!isLoaded) {
-    return null // Or a loading spinner
+    return <div style={{ textAlign: "center", padding: "20px" }}>Loading...</div> // Or a loading spinner
   }
 
   if (!isSignedIn) {

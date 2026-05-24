@@ -3,7 +3,7 @@ import { useNavigate, Outlet, NavLink, Link } from 'react-router-dom';
 import { useClerk, useUser } from '@clerk/react';
 import { appShellStyles } from '../assets/dummyStyles';
 import logo from '../assets/easyInvoice_febicon.png';
-import logoWithText from '../assets/easyInvoice_logo2.png';
+import logoWithText from '../assets/easyInvoice_logo.png';
 import { LuHouse, LuFileText, LuCirclePlus, LuLogOut } from "react-icons/lu";
 import { CgProfile, CgClose, CgMenu } from "react-icons/cg";
 import { TbLayoutSidebarLeftExpand, TbLayoutSidebarLeftCollapse } from "react-icons/tb";
@@ -283,7 +283,7 @@ const AppShell = () => {
         )}
 
         {/* Main Content Area */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 overflow-y-auto">
           <header className={`${appShellStyles.header} ${scrolled ? appShellStyles.headerScrolled : appShellStyles.headerNotScrolled}`}>
             <div className={appShellStyles.headerTopSection}>
               <div className={appShellStyles.headerContent}>

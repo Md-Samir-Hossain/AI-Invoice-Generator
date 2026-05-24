@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { navbarStyles } from '../assets/dummyStyles'
 import { Link, useNavigate } from 'react-router-dom'
-import logo from '../assets/easyInvoice_logo2.png'
+import logo from '../assets/easyInvoice_logo.png'
 import { useClerk, useUser, useAuth } from '@clerk/react'
 import { FaArrowRight } from "react-icons/fa6";
 

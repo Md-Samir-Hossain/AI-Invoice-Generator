@@ -277,15 +277,15 @@ export const createInvoiceCustomStyles = {
 // src/assets/dummyStyles.js (add these to the existing export)
 export const appShellStyles = {
   // Layout
-  root: "min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20",
-  layout: "lg:flex",
+  root: "h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20",
+  layout: "flex flex-col lg:flex-row h-screen",
   
   // Desktop Sidebar
-  sidebar: "hidden lg:block bg-white/80 backdrop-blur-xl border-r border-gray-200/60 transition-all duration-500 ease-in-out relative",
+  sidebar: "hidden lg:block h-screen bg-white/80 backdrop-blur-xl border-r border-gray-200/60 transition-all duration-500 ease-in-out relative sticky top-0",
   sidebarCollapsed: "w-20",
   sidebarExpanded: "w-80",
   sidebarGradient: "absolute inset-0 bg-gradient-to-b from-blue-50/5 to-transparent pointer-events-none",
-  sidebarContainer: "px-6 py-3 h-full flex flex-col justify-between relative z-10",
+  sidebarContainer: "px-6 py-3 h-full flex flex-col justify-between relative z-10 overflow-y-auto",
   
   // Logo Area
   logoContainer: "mb-12 flex items-center justify-between",
@@ -299,7 +299,7 @@ export const appShellStyles = {
   collapseButton: "p-2 ml-7 rounded-lg border border-gray-200 bg-white/50 hover:bg-white hover:shadow-md transition-all duration-300 group",
   
   // Navigation
-  nav: "space-y-2",
+  nav: "space-y-2 overflow-y-auto",
   sidebarLink: "group flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-all duration-300 ease-out",
   sidebarLinkCollapsed: "justify-center",
   sidebarLinkActive: "bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-sm border border-blue-100",
