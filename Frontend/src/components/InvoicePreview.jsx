@@ -4,7 +4,7 @@ import { useAuth } from "@clerk/react";
 import { invoicePreviewStyles } from "../assets/dummyStyles";
 
 const API_BASE = "http://localhost:3000";
-const PROFILE_ENDPOINT = `${API_BASE}/api/businessProfile/me`;
+const PROFILE_ENDPOINT = `${API_BASE}/api/business-profile/me`;
 const INVOICE_ENDPOINT = (id) => `${API_BASE}/api/invoice/${id}`;
 
 function resolveImageUrl(url) {
@@ -409,7 +409,7 @@ export default function InvoicePreview() {
     invoice.items && Array.isArray(invoice.items) ? invoice.items : []
   ).filter(Boolean);
   const subtotal = items.reduce(
-    (s, it) => s + Number(it.qty || 0) * Number(it.unitPrice || 0),
+    (s, it) => s + Number(it.quantity || 0) * Number(it.price || 0),
     0
   );
   const taxPercent = Number(
@@ -659,13 +659,13 @@ export default function InvoicePreview() {
                         <td className={invoicePreviewStyles.tableCell}>
                           {it.description || "Item Description"}
                         </td>
-                        <td style={{ textAlign: "right" }}>{it.qty || 0}</td>
+                        <td style={{ textAlign: "right" }}>{it.quantity || 0}</td>
                         <td style={{ textAlign: "right" }}>
-                          {currencyFmt(it.unitPrice, invoiceCurrency)}
+                          {currencyFmt(it.price, invoiceCurrency)}
                         </td>
                         <td style={{ textAlign: "right", fontWeight: "600" }}>
                           {currencyFmt(
-                            Number(it.qty || 0) * Number(it.unitPrice || 0),
+                            Number(it.quantity || 0) * Number(it.price || 0),
                             invoiceCurrency
                           )}
                         </td>
