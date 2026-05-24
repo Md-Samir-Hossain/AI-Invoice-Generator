@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard'
 import CreateInvoice from './pages/CreateInvoice'
 import Invoices from './pages/Invoices'
 import InvoicePreview from './components/InvoicePreview'
+import BusinessProfile from './pages/BusinessProfile'
+import Notfound from './pages/Notfound'
 
 const ClerkProtectedRoute = ({ children }) => {
   const { isSignedIn, isLoaded } = useAuth()
@@ -39,9 +41,12 @@ function App() {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="create-invoice" element={<CreateInvoice />} />
         <Route path="invoices" element={<Invoices />} />
-        <Route path="invoice/:id" element={<InvoicePreview />} />
-        <Route path="invoice/:id/edit" element={<CreateInvoice />} />
+        <Route path="invoices/:id" element={<InvoicePreview />} />
+        <Route path="invoices/:id/preview" element={<InvoicePreview />} />
+        <Route path="invoices/:id/edit" element={<CreateInvoice />} />
+        <Route path="business" element={<BusinessProfile/>} />
       </Route>
+      <Route path="*" element={<Notfound />} />
     </Routes>
     </div>
   )

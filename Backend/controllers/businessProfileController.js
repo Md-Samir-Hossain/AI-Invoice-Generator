@@ -9,13 +9,13 @@ function uploadedFilesToUrls(req) {
   const urls = {};
   if (!req.files) return urls;
 
-  const logoArr = req.files.logoName || req.files.logo || [];
-  const stampArr = req.files.stampName || req.files.stamp || [];
-  const sigArr = req.files.signatureNameMeta || req.files.signature || [];
+  const logoArr = req.files.logo || [];
+  const stampArr = req.files.stamp || [];
+  const sigArr = req.files.signature || [];
 
-  if (logoArr[0]) urls.logoUrl = `${API_BASE}/uploads/${logoArr[0].filename}`;
-  if (stampArr[0]) urls.stampUrl = `${API_BASE}/uploads/${stampArr[0].filename}`;
-  if (sigArr[0]) urls.signatureUrl = `${API_BASE}/uploads/${sigArr[0].filename}`;
+  if (logoArr[0]) urls.logoUrl = `${API_BASE}uploads/Business/${logoArr[0].filename}`;
+  if (stampArr[0]) urls.stampUrl = `${API_BASE}uploads/Business/${stampArr[0].filename}`;
+  if (sigArr[0]) urls.signatureUrl = `${API_BASE}uploads/Business/${sigArr[0].filename}`;
 
   return urls;
 }
@@ -40,12 +40,12 @@ export async function createBusinessProfile(req, res) {
       address: body.address || "",
       phone: body.phone || "",
       gst: body.gst || "",
-      logoUrl: fileUrls.logoUrl || body.logoUrl || body.logo || null,
-      stampUrl: fileUrls.stampUrl || body.stampUrl || body.stamp || null,
-      signatureUrl: fileUrls.signatureUrl || body.signatureUrl || body.signature || null,
+      logoUrl: fileUrls.logoUrl || body.logoUrl || null,
+      stampUrl: fileUrls.stampUrl || body.stampUrl || null,
+      signatureUrl: fileUrls.signatureUrl || body.signatureUrl || null,
       signatureOwnerName: body.signatureOwnerName || "",
       signatureOwnerTitle: body.signatureOwnerTitle || "",
-      defaultTaxParcent: body.defaultTaxParcent !== undefined ? Number(body.defaultTaxParcent) : 18,
+      defaultTaxPercent: body.defaultTaxPercent !== undefined ? Number(body.defaultTaxPercent) : 18,
     });
 
     const saved = await profile.save();
@@ -56,10 +56,12 @@ export async function createBusinessProfile(req, res) {
       data: saved,
     });
   } catch (error) {
-    console.log("Error creating business profile:", error);
+    console.error("Error creating business profile:", error.message);
+    console.error("Full error:", error);
+    console.error("Request body keys:", Object.keys(req.body || {}));
     res.status(500).json({
       success: false,
-      message: "Failed to create business profile"
+      message: error.message || "Failed to create business profile"
     });
   }
 }
@@ -76,6 +78,7 @@ export async function updateBusinessProfile(req, res) {
 
     const body = req.body || {};
     const fileUrls = uploadedFilesToUrls(req);
+    const { id } = req.params;
 
     const existing = await BusinessProfile.findById(id);
 
@@ -114,10 +117,10 @@ export async function updateBusinessProfile(req, res) {
     if (body.signatureOwnerTitle !== undefined) update.signatureOwnerTitle = body.signatureOwnerTitle;
     if (body.defaultTaxPercent !== undefined) update.defaultTaxPercent = Number(body.defaultTaxPercent);
 
-    const updated = BusinessProfile.findByIdAndUpdade(id, update, {
+    const updated = await BusinessProfile.findByIdAndUpdate(id, update, {
       new: true,
       runValidators: true,
-    })
+    });
 
     return res.status(200).json({
       success: true,
@@ -126,10 +129,13 @@ export async function updateBusinessProfile(req, res) {
     });
 
   } catch (error) {
-    console.log("Error updating business profile:", error);
+    console.error("Error updating business profile:", error.message);
+    console.error("Full error:", error);
+    console.error("Request body keys:", Object.keys(req.body || {}));
+    console.error("Request files:", Object.keys(req.files || {}));
     res.status(500).json({
       success: false,
-      message: "Failed to update business profile"
+      message: error.message || "Failed to update business profile"
     });
   }
 }
@@ -158,7 +164,7 @@ export async function getMyBusinessProfile(req, res) {
       data: profile,
     });
   } catch (error) {
-    console.log("GetMyBusinessProfile Error:", error);
+    console.error("GetMyBusinessProfile Error:", error);
     res.status(500).json({
       success: false,
       message: "Failed to fetch business profile"

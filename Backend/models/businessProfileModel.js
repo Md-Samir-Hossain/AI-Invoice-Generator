@@ -17,7 +17,7 @@ const businessProfileSchema = new mongoose.Schema({
     signatureOwnerName: { type: String, required: false, default: "" },
     signatureOwnerTitle: { type: String, required: false, default: "" },
 
-    defaultTaxParcent: { type: Number, required: false, default: 18 }
+    defaultTaxPercent: { type: Number, required: false, default: 18 }
 
 },{
     timestamps: true
