@@ -88,10 +88,10 @@ const Features = () => {
 
                 {/* Bottom CTA Section */}
                 <div className={featuresStyles.bottomCtaContainer}>
-                    <button className={featuresStyles.bottomCtaButton}>
+                    <a href="#features" className={featuresStyles.bottomCtaButton}>
                         <span className={featuresStyles.bottomCtaButtonText}>Explore All Features</span>
                         <MdKeyboardArrowRight className={featuresStyles.bottomCtaButtonIcon}/>
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
