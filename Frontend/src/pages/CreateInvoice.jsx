@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "@clerk/react";
 import StatusBadge from "../components/StatusBadge";
 import { createInvoiceStyles, createInvoiceIconColors, createInvoiceCustomStyles } from "../assets/dummyStyles";
-import { FiEye, FiFileText, FiTrash2, FiSave, FiUpload, FiPlus, FiPlusSquare } from 'react-icons/fi';
+import { FiEye, FiFileText, FiTrash2, FiSave, FiUpload, FiPlus, FiPlusSquare, FiArrowUp } from 'react-icons/fi';
 import { GoPerson } from "react-icons/go";
 
 /* ---------- API BASE ---------- */
@@ -744,7 +744,7 @@ export default function CreateInvoice() {
 
     /* ---------- JSX (kept structure, invoiceNumber input prefills generated value) ---------- */
     return (
-        <div className={createInvoiceStyles.pageContainer}>
+        <div className={createInvoiceStyles.pageContainer} id="top">
             {/* Header Section */}
             <div className={createInvoiceStyles.headerContainer}>
                 <div>
@@ -1529,6 +1529,14 @@ export default function CreateInvoice() {
                 </div>
             </div>{" "}
             {/* end main grid */}
+
+            <a href="#top"
+                className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-3 shadow-lg transition-all duration-300 transform hover:scale-110 z-50"
+                title="Scroll to top"
+                aria-label="Scroll to top"
+            >
+                <FiArrowUp className="w-6 h-6" />
+            </a>
         </div>
     );
 }

@@ -550,7 +550,7 @@ export const invoicesStyles = {
   // Actions Cell
   actionsCell: "px-6 py-4 text-right",
   actionsContainer: "flex items-center justify-end gap-2",
-  viewButton: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn",
+  viewButton: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn cursor-pointer",
   sendButton: "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all duration-200 group/btn",
   buttonIcon: "w-4 h-4 group-hover/btn:scale-110 transition-transform",
   

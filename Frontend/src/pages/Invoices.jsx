@@ -4,7 +4,7 @@ import AiInvoiceModal from "../components/AiInvoiceModal";
 import { useNavigate } from "react-router-dom";
 import { invoicesStyles } from "../assets/dummyStyles";
 import { useAuth } from "@clerk/react";
-import { FiSearch, FiFilter, FiPlus, FiEye } from "react-icons/fi";
+import { FiSearch, FiFilter, FiPlus, FiEye, FiTrash2 } from "react-icons/fi";
 import { TbArrowsSort, TbRefresh } from "react-icons/tb";
 import { RiRobot3Line } from "react-icons/ri";
 
@@ -912,7 +912,7 @@ export default function InvoicesPage() {
                           onClick={() => openInvoice(inv)}
                           className={invoicesStyles.viewButton}
                         >
-                          <FiEye className={invoicesStyles.buttonIcon} /> View
+                          <FiEye className={invoicesStyles.buttonIcon} />
                         </button>
 
                         <button
@@ -924,9 +924,10 @@ export default function InvoicesPage() {
                             background: "#ffefef",
                             color: "#b91c1c",
                             borderColor: "#fca5a5",
+                            cursor: "pointer"
                           }}
                         >
-                          Delete
+                          <FiTrash2 className={invoicesStyles.buttonIcon} />
                         </button>
                       </div>
                     </td>
