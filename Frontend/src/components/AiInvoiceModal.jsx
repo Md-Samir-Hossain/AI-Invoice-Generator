@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { aiInvoiceModalStyles } from '../assets/dummyStyles';
-import AnimatedButton from '../assets/generateBtn/Gbtn';
+import AnimatedButton from '../assets/GenerateBtn/Gbtn';
 import { RiRobot3Line } from "react-icons/ri";
 
 const AiInvoiceModal = ({ open, onClose, onGenerate, initialText = "" }) => {
