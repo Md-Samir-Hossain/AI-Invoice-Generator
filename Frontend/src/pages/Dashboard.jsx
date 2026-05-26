@@ -8,7 +8,7 @@ import { FiEye, FiFileText, FiPlus } from 'react-icons/fi';
 import { GoPerson } from "react-icons/go";
 
 // Backend URL constant
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://easyinvoice-7bg3.onrender.com";
 
 /* normalize client object */
 function normalizeClient(raw) {

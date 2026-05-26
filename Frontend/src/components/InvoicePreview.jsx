@@ -3,7 +3,7 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@clerk/react";
 import { invoicePreviewStyles } from "../assets/dummyStyles";
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://easyinvoice-7bg3.onrender.com";
 const PROFILE_ENDPOINT = `${API_BASE}/api/business-profile/me`;
 const INVOICE_ENDPOINT = (id) => `${API_BASE}/api/invoice/${id}`;
 

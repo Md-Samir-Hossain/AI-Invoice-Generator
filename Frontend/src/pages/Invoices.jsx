@@ -9,7 +9,7 @@ import { TbArrowsSort, TbRefresh } from "react-icons/tb";
 import { RiRobot3Line } from "react-icons/ri";
 
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://easyinvoice-7bg3.onrender.com";
 
 /* ---------- helpers ---------- */
 /* ----------------- frontend-only: normalize image URLs ----------------- */

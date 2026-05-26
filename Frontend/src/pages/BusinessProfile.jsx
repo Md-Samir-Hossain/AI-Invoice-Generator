@@ -5,7 +5,7 @@ import { iconColors, customStyles } from "../assets/dummyStyles";
 import { FiImage, FiPenTool, FiSave, FiTrash2, FiUpload } from "react-icons/fi";
 import { TbBuildings, TbRefresh } from "react-icons/tb";
 
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://easyinvoice-7bg3.onrender.com";
 
 function resolveImageUrl(url) {
   if (!url) return null;

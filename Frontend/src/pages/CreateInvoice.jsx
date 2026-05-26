@@ -7,7 +7,7 @@ import { FiEye, FiFileText, FiTrash2, FiSave, FiUpload, FiPlus, FiPlusSquare } f
 import { GoPerson } from "react-icons/go";
 
 /* ---------- API BASE ---------- */
-const API_BASE = "http://localhost:3000";
+const API_BASE = "https://easyinvoice-7bg3.onrender.com";
 
 /* ---------- storage helpers (unchanged) ---------- */
 /* ----------------- frontend-only: normalize image URLs ----------------- */
