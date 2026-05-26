@@ -285,7 +285,7 @@ export const appShellStyles = {
   sidebarCollapsed: "w-20",
   sidebarExpanded: "w-80",
   sidebarGradient: "absolute inset-0 bg-gradient-to-b from-blue-50/5 to-transparent pointer-events-none",
-  sidebarContainer: "px-6 py-3 h-full flex flex-col justify-between relative z-10 overflow-y-auto",
+  sidebarContainer: "px-5 py-3 h-full flex flex-col justify-between relative z-10 overflow-y-auto",
   
   // Logo Area
   logoContainer: "mb-12 flex items-center justify-between",
@@ -299,7 +299,7 @@ export const appShellStyles = {
   collapseButton: "p-2 ml-7 rounded-lg border border-gray-200 bg-white/50 hover:bg-white hover:shadow-md transition-all duration-300 group",
   
   // Navigation
-  nav: "space-y-2 overflow-y-auto",
+  nav: "space-y-2 overflow-y-auto p-1 overflow-x-hidden",
   sidebarLink: "group flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-all duration-300 ease-out",
   sidebarLinkCollapsed: "justify-center",
   sidebarLinkActive: "bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-sm border border-blue-100",
@@ -582,7 +582,7 @@ export const featuresStyles = {
   section: "relative py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden",
   
   // Background Elements
-  backgroundBlob1: "absolute top-10 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob",
+  backgroundBlob1: "absolute top-20 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob",
   backgroundBlob2: "absolute top-10 right-0 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-2",
   backgroundBlob3: "absolute -bottom-46 left-0 w-72 h-72 bg-amber-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-3",
   

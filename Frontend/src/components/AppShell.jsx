@@ -65,7 +65,7 @@ const AppShell = () => {
     } catch (err) {
       console.warn("Sign out error", err);
     }
-    navigate('/login');
+    navigate('/');
   };
 
   // Responsive and Scroll Effects 
