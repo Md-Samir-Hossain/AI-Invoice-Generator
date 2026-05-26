@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef} from 'react';
 import { useNavigate, Outlet, NavLink, Link } from 'react-router-dom';
 import { useClerk, useUser } from '@clerk/react';
 import { appShellStyles } from '../assets/dummyStyles';
@@ -30,6 +30,8 @@ const AppShell = () => {
   const navigate = useNavigate();
   const { signOut } = useClerk();
   const { user } = useUser();
+  const contentRef = useRef(null);
+  const prevScrollPos = useRef(0);
 
   // State management
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,6 +43,7 @@ const AppShell = () => {
     }
   });
   const [scrolled, setScrolled] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
   // Toggle Sidebar Function
@@ -79,13 +82,35 @@ const AppShell = () => {
     window.addEventListener('resize', checkScreenSize);
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      if (contentRef.current) {
+        const currentScrollPos = contentRef.current.scrollTop;
+        
+        // Update shadow on scroll
+        setScrolled(currentScrollPos > 10);
+        
+        // Hide/show header based on scroll direction
+        if (currentScrollPos > prevScrollPos.current) {
+          // Scrolling down
+          setHeaderVisible(false);
+        } else {
+          // Scrolling up
+          setHeaderVisible(true);
+        }
+        
+        prevScrollPos.current = currentScrollPos;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    const contentElement = contentRef.current;
+    if (contentElement) {
+      contentElement.addEventListener('scroll', handleScroll);
+    }
 
     return () => {
       window.removeEventListener('resize', checkScreenSize);
-      window.removeEventListener('scroll', handleScroll);
+      if (contentElement) {
+        contentElement.removeEventListener('scroll', handleScroll);
+      }
     };
   }, []);
 
@@ -283,8 +308,8 @@ const AppShell = () => {
         )}
 
         {/* Main Content Area */}
-        <div className="flex-1 min-w-0 overflow-y-auto">
-          <header className={`${appShellStyles.header} ${scrolled ? appShellStyles.headerScrolled : appShellStyles.headerNotScrolled}`}>
+        <div className="flex-1 min-w-0 overflow-y-auto" ref={contentRef}>
+          <header className={`${appShellStyles.header} ${scrolled ? appShellStyles.headerScrolled : appShellStyles.headerNotScrolled} ${headerVisible ? appShellStyles.headerVisible : appShellStyles.headerHidden}`}>
             <div className={appShellStyles.headerTopSection}>
               <div className={appShellStyles.headerContent}>
                 {/* Mobile Menu Toggle */}

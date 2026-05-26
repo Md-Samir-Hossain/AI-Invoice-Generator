@@ -285,7 +285,7 @@ export const appShellStyles = {
   sidebarCollapsed: "w-20",
   sidebarExpanded: "w-80",
   sidebarGradient: "absolute inset-0 bg-gradient-to-b from-blue-50/5 to-transparent pointer-events-none",
-  sidebarContainer: "px-5 py-3 h-full flex flex-col justify-between relative z-10 overflow-y-auto",
+  sidebarContainer: "px-5 py-3 h-full flex flex-col justify-between relative z-10 overflow-y-auto overflow-x-hidden",
   
   // Logo Area
   logoContainer: "mb-12 flex items-center justify-between",
@@ -311,7 +311,7 @@ export const appShellStyles = {
   sidebarActiveIndicator: "w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse",
   
   // User Area
-  userSection: "mt-auto",
+  userSection: "mt-auto p-1",
   userDivider: "border-t border-gray-200/60 pt-6",
   userDividerCollapsed: "px-1",
   userDividerExpanded: "px-2",
@@ -343,6 +343,8 @@ export const appShellStyles = {
   header: "flex flex-col sm:flex-row sm:items-center justify-between px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-xl border-b border-gray-200/60 sticky top-0 z-40 transition-all duration-300 min-h-20",
   headerScrolled: "shadow-sm",
   headerNotScrolled: "shadow-none",
+  headerHidden: "-translate-y-full",
+  headerVisible: "translate-y-0",
   headerTopSection: "flex items-center justify-between sm:justify-start w-full py-3 sm:py-0",
   headerContent: "flex items-center gap-3 sm:gap-6 w-full",
   mobileMenuButton: "lg:hidden inline-flex items-center justify-center p-2 sm:p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-white hover:shadow-md transition-all duration-300",
